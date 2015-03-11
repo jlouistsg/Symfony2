@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/tes")
      */
     public function indexAction()
     {
@@ -85,5 +85,31 @@ class DefaultController extends Controller
         return array(
             'form' => $form->createView(),
         );
+    }
+
+
+    /**
+     * @Route("/")
+     * @Template()
+     */
+    public function getPostsAction()
+    {
+        $em = $this->get("doctrine.orm.entity_manager");
+        $publishedPosts = $em->getRepository('EsgiBlogBundle:Post')->findPublicationStatus(false);
+
+        return array('publishedPosts' => $publishedPosts);
+    }
+
+
+    /**
+     * @Route("/article/{slug}")
+     * @Template()
+     */
+    public function getPostAction($slug)
+    {
+        $em = $this->get("doctrine.orm.entity_manager");
+        $publishedPost = $em->getRepository('EsgiBlogBundle:Post')->findPublicationSlug($slug);
+
+        return array('publishedPost' => $publishedPost);
     }
 }

@@ -15,4 +15,13 @@ class PostRepository extends EntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function findPublicationSlug($slug)
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.slug = :slug_value')
+            ->setParameter('slug_value', $slug)
+            ->getQuery()
+            ->getResult();
+    }
 }

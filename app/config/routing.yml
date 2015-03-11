@@ -1,7 +1,7 @@
 esgi_blog:
     resource: "@EsgiBlogBundle/Controller/"
     type:     annotation
-    prefix:   /blog
+    prefix:   /
 
 app:
     resource: @AppBundle/Controller/
