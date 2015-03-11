@@ -1,0 +1,88 @@
+
+
+Post
+    id
+    title
+    body
+    isPublished
+    category_id
+    user_id
+
+Category
+    id
+    name
+
+Comment
+    id
+    content
+    post_id
+    created
+
+User
+    id
+    name
+    password
+    email
+    role?
+
+
+
+Pages
+    /                   -> get posts
+
+    /{id}               -> get post unique
+                        -> get comments from post
+                        -> comment post
+
+    /new                -> create post
+    /edit/{id}          -> edit post
+
+
+    /{login}            -> form for login
+    /{logout}           -> logout current user
+
+    /admin/users                -> get users
+    /admin/user/{id}            -> get user
+    /admin/category             -> get categories
+                                -> add category
+
+    /admin/category/new         -> create category
+    /admin/category/edit/{id}   -> edit category
+    /admin/category/delete      -> delete category
+
+
+
+Controller
+    AdminController
+        for admin function
+            getCategoriesAction
+            getPostsAction
+
+            getCategoryAction
+            getPostAction
+
+            updateCateogryAction
+            updatePostAction
+
+            newCategoryAction
+            newPostAction
+
+    DefaultController
+        for public function
+            getPostsAction
+            getCommentsAction
+
+            getPostAction
+
+            newCommentAction
+
+    SecuredController
+        for login function
+            loginAction
+            logoutAction
+
+            newAccountAction
+
+
+
+
