@@ -9,7 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Comment
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Esgi\BlogBundle\Entity\CommentRepository")
+ * @ORM\Entity(repositoryClass="Esgi\BlogBundle\Repository\CommentRepository")
  */
 class Comment
 {

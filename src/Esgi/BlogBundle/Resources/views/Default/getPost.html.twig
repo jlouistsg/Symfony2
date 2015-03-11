@@ -19,6 +19,16 @@
 {% endfor %}
 
 
+{% for comment in publishedComments %}
+
+    <div>
+        <p>{{comment.name}}</p>
+        <p>{{comment.content}}</p>
+    </div>
+
+{% endfor %}
+
+
 {{form(form)}}
 
 {% endblock %}

@@ -114,19 +114,25 @@ class DefaultController extends Controller
     {
         $em = $this->get("doctrine.orm.entity_manager");
 
+        // get the post
         $publishedPost = $em->getRepository('EsgiBlogBundle:Post')->findPublicationSlug($slug);
-        // $publishedComments = $em->getRepository('EsgiBlogBundle:Post')
+
+        // get the comments
+        $publishedComments = $em->getRepository('EsgiBlogBundle:Comment')->findPublicationStatus(false,$publishedPost[0]);
+
+        // create a comment
         $comment = new Comment();
         $comment->setIsPublished(false);
+        $comment->setPost($publishedPost[0]);
 
+        // init the form
         $form=$this->createForm(new ProposeCommentType(), $comment);
 
+        // save the comment
         if($request->getMethod() == 'POST') {
             $form->handleRequest($request);
 
             if($form->isValid()) {
-                // save the proposition
-
                 $em = $this->get("doctrine.orm.entity_manager");
                 $em->persist($comment);
                 $em->flush();
@@ -136,9 +142,11 @@ class DefaultController extends Controller
             }
         }
 
+        // return to the view the argument
         return array(
             'form' => $form->createView(),
-            'publishedPost' => $publishedPost
+            'publishedPost' => $publishedPost,
+            'publishedComments' => $publishedComments
         );
 
     }
