@@ -35,5 +35,6 @@ ehthumbs.db
 Thumbs.db
 
 
-/app/cache
-/app/logs
+app/cache/*
+app/logs/*
+app/vendor/*
