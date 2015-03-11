@@ -6,8 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
+
 use Esgi\BlogBundle\Entity\Post;
 use Esgi\BlogBundle\Form\ProposePostType;
+
+use Esgi\BlogBundle\Entity\Comment;
+use Esgi\BlogBundle\Form\ProposeCommentType;
+
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
@@ -102,14 +107,39 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/article/{slug}")
+     * @Route("/article/{slug}" , name="blog_article")
      * @Template()
      */
-    public function getPostAction($slug)
+    public function getPostAction($slug, Request $request)
     {
         $em = $this->get("doctrine.orm.entity_manager");
-        $publishedPost = $em->getRepository('EsgiBlogBundle:Post')->findPublicationSlug($slug);
 
-        return array('publishedPost' => $publishedPost);
+        $publishedPost = $em->getRepository('EsgiBlogBundle:Post')->findPublicationSlug($slug);
+        // $publishedComments = $em->getRepository('EsgiBlogBundle:Post')
+        $comment = new Comment();
+        $comment->setIsPublished(false);
+
+        $form=$this->createForm(new ProposeCommentType(), $comment);
+
+        if($request->getMethod() == 'POST') {
+            $form->handleRequest($request);
+
+            if($form->isValid()) {
+                // save the proposition
+
+                $em = $this->get("doctrine.orm.entity_manager");
+                $em->persist($comment);
+                $em->flush();
+
+                $this->get('session')->getFlashBag()->add('success', 'Your proposition has been saved!');
+                return $this->redirect($this->generateUrl('blog_article', array('slug' => $slug)));
+            }
+        }
+
+        return array(
+            'form' => $form->createView(),
+            'publishedPost' => $publishedPost
+        );
+
     }
 }

@@ -49,6 +49,12 @@ class Post
      */
     protected $category;
 
+
+    /**
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
+     */
+    protected $comments;
+
     /**
      * @var string
      *
@@ -245,5 +251,45 @@ class Post
     public function getUpdated()
     {
         return $this->updated;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add comments
+     *
+     * @param \Esgi\BlogBundle\Entity\Comment $comments
+     * @return Post
+     */
+    public function addComment(\Esgi\BlogBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \Esgi\BlogBundle\Entity\Comment $comments
+     */
+    public function removeComment(\Esgi\BlogBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }

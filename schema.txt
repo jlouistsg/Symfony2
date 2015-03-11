@@ -14,6 +14,7 @@ Category
 
 Comment
     id
+    name
     content
     post_id
     isPublished
@@ -76,13 +77,6 @@ Controller
             getPostAction
 
             newCommentAction
-
-    SecuredController
-        for login function
-            loginAction
-            logoutAction
-
-            newAccountAction
 
 
 
