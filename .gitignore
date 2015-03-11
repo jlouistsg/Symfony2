@@ -43,3 +43,5 @@ vendor/*
 app/logs/dev.log
 
 composer.phar
+
+*.phar
