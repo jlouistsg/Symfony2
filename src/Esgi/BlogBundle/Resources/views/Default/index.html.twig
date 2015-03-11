@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block body %}
+
+    {{ parent() }} dzds
+
+    {% for post in publishedPosts %}
+
+        <div>
+            <h1>{{ post.title }}</h1>
+            <p>{{ post.body }}</p>
+
+        </div>
+
+    {% endfor %}
+
+{% endblock %}
