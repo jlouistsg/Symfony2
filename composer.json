@@ -28,7 +28,9 @@
         "knplabs/knp-menu-bundle": "~2.0",
         "willdurand/faker-bundle": "@stable",
         "stfalcon/tinymce-bundle": "dev-master",
-        "knplabs/knp-paginator-bundle": "~2.4"
+        "knplabs/knp-paginator-bundle": "~2.4",
+        "friendsofsymfony/rest-bundle": "dev-master",
+        "jms/serializer-bundle": "~0.13"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

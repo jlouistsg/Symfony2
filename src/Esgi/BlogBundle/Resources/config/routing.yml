@@ -1,0 +1,3 @@
+category:
+    type: rest
+    resource: Esgi\BlogBundle\Controller\CategoryController
