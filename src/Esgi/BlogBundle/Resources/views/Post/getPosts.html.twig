@@ -14,7 +14,8 @@
                     {{ post.title }}
                 </a>
             </h1>
-            <p>{{ post.body[:2]|striptags ~ ' ...' }}</p>
+            <p>{{ post.body[:2]|striptags ~ ' ...' | raw}}</p>
+
         </div>
 
     {% endfor %}

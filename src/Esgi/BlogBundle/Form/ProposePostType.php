@@ -11,10 +11,15 @@ class ProposePostType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('title')
-        ->add('body')
-        ->add('category')
-        ->add('save', 'submit');
+            ->add('title')
+            ->add('body','textarea', array(
+                    'attr' => array(
+                        'class' => 'tinymce'
+                    )
+                )
+            )
+            ->add('category')
+            ->add('save', 'submit');
     }
 
     public function getName()
