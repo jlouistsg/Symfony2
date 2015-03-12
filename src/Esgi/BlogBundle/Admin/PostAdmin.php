@@ -1,6 +1,4 @@
 <?php
-// src/Acme/DemoBundle/Admin/PostAdmin.php
-
 namespace Esgi\BlogBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
@@ -15,8 +13,8 @@ class PostAdmin extends Admin
     {
         $formMapper
             ->add('title', 'text', array('label' => 'Post Title'))
-            ->add('author', 'entity', array('class' => 'Esgi\BlogBundle\Entity\User'))
-            ->add('body') //if no type is specified, SonataAdminBundle tries to guess it
+            ->add('body')
+            ->add('isPublished')
         ;
     }
 
@@ -25,7 +23,8 @@ class PostAdmin extends Admin
     {
         $datagridMapper
             ->add('title')
-            ->add('author')
+            ->add('body')
+            ->add('isPublished')
         ;
     }
 
@@ -34,8 +33,8 @@ class PostAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('title')
-            ->add('slug')
-            ->add('author')
+            ->add('body')
+            ->add('isPublished')
         ;
     }
 }
