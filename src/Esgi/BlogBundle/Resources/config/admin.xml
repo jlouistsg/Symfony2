@@ -11,5 +11,23 @@
               <argument>EsgiBlogBundle</argument>
           </call>
       </service>
+       <service id="sonata.admin.comment" class="Esgi\BlogBundle\Admin\CommentAdmin">
+          <tag name="sonata.admin" manager_type="orm" group="Content" label="Comment"/>
+          <argument />
+          <argument>Esgi\BlogBundle\Entity\Comment</argument>
+          <argument />
+          <call method="setTranslationDomain">
+              <argument>EsgiBlogBundle</argument>
+          </call>
+      </service>
+       <service id="sonata.admin.category" class="Esgi\BlogBundle\Admin\CategoryAdmin">
+          <tag name="sonata.admin" manager_type="orm" group="Content" label="Category"/>
+          <argument />
+          <argument>Esgi\BlogBundle\Entity\Category</argument>
+          <argument />
+          <call method="setTranslationDomain">
+              <argument>EsgiBlogBundle</argument>
+          </call>
+      </service>
    </services>
 </container>

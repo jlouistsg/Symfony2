@@ -114,7 +114,6 @@ knp_menu:
 
 sonata_admin:
     title:      Esgi Blog Bundle
-    title_logo: bundles/esgiblogbundle/img/fancy_acme_logo.png
     templates:
         dashboard: SonataAdminBundle:Core:dashboard.html.twig
 
