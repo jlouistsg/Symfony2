@@ -25,7 +25,8 @@
         "sonata-project/admin-bundle": "~2.3",
         "sonata-project/doctrine-orm-admin-bundle": "~2.3",
         "sonata-project/block-bundle": "~2.2",
-        "knplabs/knp-menu-bundle": "~2.0"
+        "knplabs/knp-menu-bundle": "~2.0",
+        "willdurand/faker-bundle": "@stable"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

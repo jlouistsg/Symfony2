@@ -191,6 +191,8 @@ class PostController extends Controller
         // set isPublished at false
         $post->setIsPublished(false);
 
+        $em = $this->get("doctrine.orm.entity_manager");
+
         // init form with object post
         $form = $this->createForm(new ProposePostType(), $post);
 
@@ -200,7 +202,6 @@ class PostController extends Controller
 
             // if the form is valid
             if ($form->isValid()) {
-                $em = $this->get("doctrine.orm.entity_manager");
                 $em->persist($post);
                 $em->flush();
 
