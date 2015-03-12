@@ -121,7 +121,7 @@ class PostController extends Controller
         if ($request->getMethod() == 'POST') {
             $form->handleRequest($request);
 
-            // if the form is valide
+            // if the form is valid
             if ($form->isValid()) {
                 $em = $this->get("doctrine.orm.entity_manager");
                 $em->persist($publishedPost[0]);
@@ -159,7 +159,7 @@ class PostController extends Controller
         if ($request->getMethod() == 'POST') {
             $form->handleRequest($request);
 
-            // if the form is valide
+            // if the form is valid
             if ($form->isValid()) {
                 $em = $this->get("doctrine.orm.entity_manager");
                 $em->persist($post);
