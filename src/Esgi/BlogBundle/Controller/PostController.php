@@ -10,6 +10,7 @@ use Esgi\BlogBundle\Form\ProposePostType;
 use Esgi\BlogBundle\Entity\Comment;
 use Esgi\BlogBundle\Form\ProposeCommentType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class PostController extends Controller
 {
@@ -190,8 +191,6 @@ class PostController extends Controller
         // set isPublished at false
         $post->setIsPublished(false);
 
-        $em = $this->get("doctrine.orm.entity_manager");
-
         // init form with object post
         $form = $this->createForm(new ProposePostType(), $post);
 
@@ -201,6 +200,7 @@ class PostController extends Controller
 
             // if the form is valid
             if ($form->isValid()) {
+                $em = $this->get("doctrine.orm.entity_manager");
                 $em->persist($post);
                 $em->flush();
 
@@ -249,40 +249,10 @@ class PostController extends Controller
                 // save the change
                 $em->flush();
 
-                return $this->redirect($this->generateUrl('blog_get_articles'));
+                return new Response('ok');
             }
         } else {
-            return $this->render('EsgiBlogBundle:Error:Error.html.twig', array());
-        }
-    }
-
-    /**
-     * @Route("/article/category/{category_name}")
-     * @Template()
-     */
-    public function getPostByCategoryAction($category_name)
-    {
-        // init connection to db
-        $em = $this->get("doctrine.orm.entity_manager");
-
-        // get posts from db
-        $category = $em->getRepository('EsgiBlogBundle:Category')->findCategoryByName($category_name);
-
-        if ($category != null) {
-            $publishedPosts = $em->getRepository('EsgiBlogBundle:Post')->findPublicationByCategory($category[0]);
-
-            if ($publishedPosts != null) {
-                // return posts to view
-                return $this->render('EsgiBlogBundle:Post:getPosts.html.twig', array(
-                    'publishedPosts' => $publishedPosts,
-                ));
-            } else {
-                // return posts to view
-                return $this->render('EsgiBlogBundle:Error:Error.html.twig', array('msgError' => 'pas de post'));
-            }
-        } else {
-            // return posts to view
-            return $this->render('EsgiBlogBundle:Error:Error.html.twig', array('msgError' => 'pas de category'));
+            return new Response('pas ok');
         }
     }
 }

@@ -4,20 +4,31 @@
 
 {% block body %}
 
-    {{ parent() }} feief
+    {{ parent() }}
 
-    {% for post in publishedPosts %}
+    <h2>Derniers articles</h2>
 
-        <div>
-            <h1>
-                <a href="/article/get/{{ post.slug }}">
-                    {{ post.title }}
-                </a>
-            </h1>
-            <p>{{ post.body[:2]|striptags ~ ' ...' | raw}}</p>
+    <table class="table table-hover">
+        <tbody>
+            {% for post in publishedPosts %}
+            <tr>
+                <td>
+                    <h3>
+                        <a href="/article/get/{{ post.slug }}">
+                            {{ post.title }}
+                        </a>
+                    </h3>
 
-        </div>
+                    <p>{{ post.body[:20]|striptags ~ ' ...' }}</p>
+                
+                    <a href="/article/get/{{ post.slug }}" class="text-primary pull-right">
+                        Lire la suite
+                    </a>
+                </td>
+            </tr>
 
-    {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
 
 {% endblock %}

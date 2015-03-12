@@ -24,13 +24,4 @@ class PostRepository extends EntityRepository
             ->getQuery()
             ->getResult();
     }
-
-    public function findPublicationByCategory($category)
-    {
-        return $this->createQueryBuilder('p')
-            ->where('p.category = :category')
-            ->setParameter('category', $category)
-            ->getQuery()
-            ->getResult();
-    }
 }

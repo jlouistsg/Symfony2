@@ -11,14 +11,35 @@ class ProposeCommentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('name')
-        ->add('content', 'textarea', array(
+        ->add(
+            'name',
+            'text',
+            array(
                 'attr' => array(
-                    'class' => 'tinymce',
-                ),
+                    'label' => 'Nom',
+                    'placeholder' => 'Votre nom'
+                )
             )
         )
-        ->add('save', 'submit');
+        ->add(
+            'content',
+            'textarea',
+            array(
+                'attr' => array(
+                    'label' => 'Commentaire',
+                    'placeholder' => 'Votre commentaire'
+                )
+            )
+        )
+        ->add(
+            'save',
+            'submit',
+            array(
+                'attr' => array(
+                    'label' => 'Envoyer'
+                )
+            )
+        );
     }
 
     public function getName()
