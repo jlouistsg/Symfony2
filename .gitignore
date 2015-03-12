@@ -38,6 +38,7 @@ Thumbs.db
 app/cache/*
 app/logs/*
 app/vendor/*
+
 vendor/*
 
 app/logs/dev.log
@@ -49,3 +50,35 @@ composer.phar
 app/logs/dev.log
 
 .idea
+
+vendor/monolog/monolog/tests/Monolog/Handler/NewRelicHandlerTest.php
+
+vendor/monolog/monolog/tests/Monolog/Handler/HipChatHandlerTest.php
+
+vendor/monolog/monolog/src/Monolog/Handler/SlackHandler.php
+
+vendor/monolog/monolog/src/Monolog/Handler/NativeMailerHandler.php
+
+vendor/monolog/monolog/src/Monolog/Handler/LogEntriesHandler.php
+
+vendor/monolog/monolog/src/Monolog/Handler/HipChatHandler.php
+
+vendor/monolog/monolog/src/Monolog/Handler/BrowserConsoleHandler.php
+
+vendor/monolog/monolog/src/Monolog/Formatter/JsonFormatter.php
+
+vendor/monolog/monolog/CHANGELOG.mdown
+
+vendor/composer/installed.json
+
+vendor/composer/autoload_real.php
+
+vendor/composer/autoload_namespaces.php
+
+vendor/autoload.php
+
+composer.lock
+
+app/logs/dev.log
+
+app/config/parameters.yml
