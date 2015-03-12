@@ -47,3 +47,5 @@ composer.phar
 *.phar
 
 app/logs/dev.log
+
+.idea
