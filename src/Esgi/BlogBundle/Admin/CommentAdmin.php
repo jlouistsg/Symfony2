@@ -13,9 +13,8 @@ class CommentAdmin extends Admin
     {
         $formMapper
             ->add('name', 'text', array('label' => 'Post Title'))
-            ->add('content')
-            ->add('isPublished')
-            ->add('created')
+            ->add('content', 'textarea', array('attr' => array('class' => 'tinymce')))
+            ->add('isPublished',null, array('required' => false))
         ;
     }
 
@@ -26,7 +25,6 @@ class CommentAdmin extends Admin
             ->add('name')
             ->add('content')
             ->add('isPublished')
-            ->add('created')
         ;
     }
 
@@ -37,7 +35,6 @@ class CommentAdmin extends Admin
             ->addIdentifier('name')
             ->add('content')
             ->add('isPublished')
-            ->add('created')
         ;
     }
 }

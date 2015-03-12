@@ -13,8 +13,8 @@ class PostAdmin extends Admin
     {
         $formMapper
             ->add('title', 'text', array('label' => 'Post Title'))
-            ->add('body')
-            ->add('isPublished')
+            ->add('body', 'textarea', array('attr' => array('class' => 'tinymce')))
+            ->add('isPublished',null, array('required' => false))
         ;
     }
 

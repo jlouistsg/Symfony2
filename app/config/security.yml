@@ -66,5 +66,8 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
-        # - { path: ^/new-post, role: ROLE_ADMIN }
+        - { path: ^/category, role: ROLE_ADMIN }
+        - { path: ^/new, role: ROLE_ADMIN }
+        - { path: ^/article/edit, role: ROLE_ADMIN }
+        - { path: ^/article/delete, role: ROLE_ADMIN }
 

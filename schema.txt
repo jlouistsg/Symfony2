@@ -1,83 +1,23 @@
+Public
+     * @Route("/" , name="blog_get_articles")
+     * @Route("/article/get/{slug}" , name="blog_get_article")
+     * @Route("/article/propose", name="blog_propose_article")
+     * @Route("/article/category/{category_name}")
+
+Private
+     * @Route("/category")
+     * @Route("/", name="category_create")
+     * @Route("/new", name="category_new")
+     * @Route("/{id}/show", name="category_show")
+     * @Route("/{id}/edit", name="category_edit")
+     * @Route("/{id}", name="category_update")
+     * @Route("/article/edit/{slug}", name="blog_edit_article")
+     * @Route("/article/new")
+     * @Route("/article/delete/{slug}")
 
 
-Post
-    id
-    title
-    body
-    isPublished
-    category_id
-    user_id
+//
+http://ideadapt.blogspot.fr/2012/01/customizing-templates-of-symfony2.html
 
-Category
-    id
-    name
-
-Comment
-    id
-    name
-    content
-    post_id
-    isPublished
-    created
-
-User
-    id
-    name
-    password
-    email
-    role?
-
-
-
-Pages
-    /                   -> get posts
-
-    /{id}               -> get post unique
-                        -> get comments from post
-                        -> comment post
-
-    /new                -> create post
-    /edit/{id}          -> edit post
-    /propose
-
-    /{login}            -> form for login
-    /{logout}           -> logout current user
-
-    /admin/users                -> get users
-    /admin/user/{id}            -> get user
-    /admin/category             -> get categories
-                                -> add category
-
-    /admin/category/new         -> create category
-    /admin/category/edit/{id}   -> edit category
-    /admin/category/delete      -> delete category
-
-
-
-Controller
-    AdminController
-        for admin function
-            getCategoriesAction
-            getPostsAction
-
-            getCategoryAction
-            getPostAction
-
-            updateCateogryAction
-            updatePostAction
-
-            newCategoryAction
-            newPostAction
-
-    DefaultController
-        for public function
-            getPostsAction
-            getCommentsAction
-
-            getPostAction
-
-            newCommentAction
-
-
-
-
+standard_layout.html.twig
+vendor\bundles\Sonata\AdminBundle\Resources\views

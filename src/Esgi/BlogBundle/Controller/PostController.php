@@ -14,31 +14,6 @@ use Symfony\Component\HttpFoundation\Request;
 class PostController extends Controller
 {
     /**
-     * @Route("/tes")
-     */
-    public function indexAction()
-    {
-        $em = $this->get("doctrine.orm.entity_manager");
-        $publishedPosts = $em->getRepository('EsgiBlogBundle:Post')->findPublicationStatus(false);
-
-        return $this->render('EsgiBlogBundle:Default:index.html.twig', array(
-            'publishedPosts' => $publishedPosts,
-        ));
-    }
-
-    /**
-     * @Route("/addition/{a}/{b}")
-     * @Template()
-     */
-    public function additionAction($a, $b)
-    {
-        return [
-            'sum' => $this->get('esgi.computer')->addition($a, $b),
-            'power' => $this->get('esgi.computer')->power($a),
-        ];
-    }
-
-    /**
      * @Route("/" , name="blog_get_articles")
      * @Template()
      */
@@ -48,7 +23,7 @@ class PostController extends Controller
         $em = $this->get("doctrine.orm.entity_manager");
 
         // get posts from db
-        $publishedPosts = $em->getRepository('EsgiBlogBundle:Post')->findPublicationStatus(false);
+        $publishedPosts = $em->getRepository('EsgiBlogBundle:Post')->findPublicationStatus(true);
 
         // get categories from db
         $categories = $em->getRepository('EsgiBlogBundle:Category')->getCategory();
@@ -70,7 +45,7 @@ class PostController extends Controller
         $publishedPost = $em->getRepository('EsgiBlogBundle:Post')->findPublicationSlug($slug);
 
         // get the comments
-        $publishedComments = $em->getRepository('EsgiBlogBundle:Comment')->findCommentPublicationStatus(false, $publishedPost[0]);
+        $publishedComments = $em->getRepository('EsgiBlogBundle:Comment')->findCommentPublicationStatus(true, $publishedPost[0]);
 
         // create a comment
         $comment = new Comment();
