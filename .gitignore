@@ -39,3 +39,13 @@ app/cache/*
 app/logs/*
 app/vendor/*
 vendor/*
+
+app/logs/dev.log
+
+composer.phar
+
+*.phar
+
+app/logs/dev.log
+
+.idea

@@ -1,0 +1,41 @@
+{% extends 'EsgiBlogBundle::layout.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+
+{% for post in publishedPost %}
+    <div>
+        <h1>
+            {{ post.title }}
+        </h1>
+        <h2>
+            le {{ post.updated|date("d M Y, h:s") }}
+        </h2>
+        <p>
+            {{ post.body }}
+        </p>
+    </div>
+{% endfor %}
+
+
+{% for comment in publishedComments %}
+
+    <div>
+        <p>{{comment.name}}</p>
+        <p>{{comment.content}}</p>
+    </div>
+
+{% endfor %}
+
+
+{% for flashMessage in app.session.flashbag.get('success') %}
+    <div class="flash notice">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+
+{{form(form)}}
+
+{% endblock %}

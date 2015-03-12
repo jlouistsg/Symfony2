@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title 'Demo Bundle' %}
+
+
+{% block body %}
+{% for flashMessage in app.session.flashbag.get('success') %}
+    <div class="flash notice">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+{{form(form)}}
+{% endblock %}

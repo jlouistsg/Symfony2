@@ -6,10 +6,10 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Comment
+ * Comment.
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Esgi\BlogBundle\Entity\CommentRepository")
+ * @ORM\Entity(repositoryClass="Esgi\BlogBundle\Repository\CommentRepository")
  */
 class Comment
 {
@@ -56,7 +56,7 @@ class Comment
     protected $post;
 
     /**
-     * Get id
+     * Get id.
      *
      * @return integer
      */
@@ -66,9 +66,10 @@ class Comment
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
+     *
      * @return Comment
      */
     public function setName($name)
@@ -79,7 +80,7 @@ class Comment
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -89,9 +90,10 @@ class Comment
     }
 
     /**
-     * Set content
+     * Set content.
      *
      * @param string $content
+     *
      * @return Comment
      */
     public function setContent($content)
@@ -102,7 +104,7 @@ class Comment
     }
 
     /**
-     * Get content
+     * Get content.
      *
      * @return string
      */
@@ -112,9 +114,10 @@ class Comment
     }
 
     /**
-     * Set isPublished
+     * Set isPublished.
      *
      * @param boolean $isPublished
+     *
      * @return Comment
      */
     public function setIsPublished($isPublished)
@@ -125,7 +128,7 @@ class Comment
     }
 
     /**
-     * Get isPublished
+     * Get isPublished.
      *
      * @return boolean
      */
@@ -135,9 +138,10 @@ class Comment
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
+     *
      * @return Comment
      */
     public function setCreated($created)
@@ -148,7 +152,7 @@ class Comment
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -158,9 +162,10 @@ class Comment
     }
 
     /**
-     * Set post
+     * Set post.
      *
      * @param \Esgi\BlogBundle\Entity\Post $post
+     *
      * @return Comment
      */
     public function setPost(\Esgi\BlogBundle\Entity\Post $post = null)
@@ -171,7 +176,7 @@ class Comment
     }
 
     /**
-     * Get post
+     * Get post.
      *
      * @return \Esgi\BlogBundle\Entity\Post
      */
