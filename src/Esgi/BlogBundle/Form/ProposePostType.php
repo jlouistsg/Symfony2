@@ -13,6 +13,7 @@ class ProposePostType extends AbstractType
         $builder
         ->add('title')
         ->add('body')
+        ->add('category')
         ->add('save', 'submit');
     }
 

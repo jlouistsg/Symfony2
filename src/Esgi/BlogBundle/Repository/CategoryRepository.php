@@ -6,10 +6,14 @@ use Doctrine\ORM\EntityRepository;
 
 class CategoryRepository extends EntityRepository
 {
-    public function findCategory()
+    public function findCategoryByName($name)
     {
         return $this->createQueryBuilder('p')
+            ->where('p.name = :name')
+            ->orderBy('p.name', 'DESC')
+            ->setParameter('name', $name)
             ->getQuery()
             ->getResult();
     }
+
 }
