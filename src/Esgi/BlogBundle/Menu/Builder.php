@@ -18,7 +18,7 @@ class Builder extends ContainerAware
         $blog = $em->getRepository('EsgiBlogBundle:Post')->findPublicationStatus(false);
 
         $menu->addChild('Latest Blog Post', array(
-            'route' => 'admin',/*,
+            'route' => 'admin', /*,
             'routeParameters' => array('id' => $blog->getId())*/
         ));
 

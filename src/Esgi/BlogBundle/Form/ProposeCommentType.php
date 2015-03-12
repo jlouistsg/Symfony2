@@ -17,8 +17,8 @@ class ProposeCommentType extends AbstractType
             array(
                 'attr' => array(
                     'label' => 'Nom',
-                    'placeholder' => 'Votre nom'
-                )
+                    'placeholder' => 'Votre nom',
+                ),
             )
         )
         ->add(
@@ -27,8 +27,8 @@ class ProposeCommentType extends AbstractType
             array(
                 'attr' => array(
                     'label' => 'Commentaire',
-                    'placeholder' => 'Votre commentaire'
-                )
+                    'placeholder' => 'Votre commentaire',
+                ),
             )
         )
         ->add(
@@ -36,8 +36,8 @@ class ProposeCommentType extends AbstractType
             'submit',
             array(
                 'attr' => array(
-                    'label' => 'Envoyer'
-                )
+                    'label' => 'Envoyer',
+                ),
             )
         );
     }

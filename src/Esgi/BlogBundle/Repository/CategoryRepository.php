@@ -15,4 +15,12 @@ class CategoryRepository extends EntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function getCategory()
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.name', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
 }

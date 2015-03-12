@@ -9,8 +9,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Esgi\BlogBundle\Entity\Category;
 use Esgi\BlogBundle\Form\CategoryType;
-use FOS\RestBundle\Controller\FOSRestController;
-use FOS\RestBundle\Routing\ClassResourceInterface;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\Rest\Util\Codes;
 
@@ -256,10 +254,12 @@ class CategoryController extends Controller
     }
 
     /**
-     * Collection get action
-     * @var Request $request
+     * Collection get action.
+     *
+     * @var Request
+     *
      * @return array
-     * 
+     *
      * @Method("GET")
      * @Rest\View()
      */
@@ -275,9 +275,12 @@ class CategoryController extends Controller
     }
 
     /**
-     * Get entity instance
-     * @var integer $id Id of the entity
+     * Get entity instance.
+     *
+     * @var integer Id of the entity
+     *
      * @return Category
+     *
      * @Method("GET")
      */
     protected function getEntity($id)
@@ -294,10 +297,12 @@ class CategoryController extends Controller
     }
 
     /**
-     * Get action
-     * @var integer $id Id of the entity
+     * Get action.
+     *
+     * @var integer Id of the entity
+     *
      * @return array
-     * 
+     *
      * @Method("GET")
      * @Rest\View()
      */
@@ -311,8 +316,10 @@ class CategoryController extends Controller
     }
 
     /**
-     * Collection post action
-     * @var Request $request
+     * Collection post action.
+     *
+     * @var Request
+     *
      * @return View|array
      */
     public function cpostAction(Request $request)
@@ -341,9 +348,11 @@ class CategoryController extends Controller
     }
 
     /**
-     * Put action
-     * @var Request $request
-     * @var integer $id Id of the entity
+     * Put action.
+     *
+     * @var Request
+     * @var integer Id of the entity
+     *
      * @return View|array
      */
     public function putAction(Request $request, $id)
@@ -366,10 +375,14 @@ class CategoryController extends Controller
     }
 
     /**
-     * Delete action
+     * Delete action.
+     *
      * @Route("/{id}", name="category_delete")
-     * @var integer $id Id of the entity
+     *
+     * @var integer Id of the entity
+     *
      * @return View
+     *
      * @Method("DELETE")
      */
     public function deleteAction($id)

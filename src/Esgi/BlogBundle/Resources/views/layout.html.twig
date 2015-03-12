@@ -18,7 +18,7 @@
                 <h1>Blog de l'ESGI</h1>
 
                 <p>Développé sous Symfony2</p>
-                
+
                 <nav class="navbar navbar-inverse">
                     <div class="container-fluid">
                         <div class="collapse navbar-collapse">
@@ -41,7 +41,8 @@
             </div>
 
             <div class="col-xs-6 col-md-4 well well-lg">
-                <h2>Sidebar</h2>
+                {% block sidebar %}
+                {% endblock %}
             </div>
 
             <div class="clearfix"></div>

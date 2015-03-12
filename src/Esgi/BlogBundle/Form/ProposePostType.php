@@ -17,8 +17,8 @@ class ProposePostType extends AbstractType
             array(
                 'attr' => array(
                     'label' => 'Titre',
-                    'placeholder' => 'Titre de l\'article'
-                )
+                    'placeholder' => 'Titre de l\'article',
+                ),
             )
         )
         ->add(
@@ -27,20 +27,20 @@ class ProposePostType extends AbstractType
             array(
                 'attr' => array(
                     'label' => 'Contenu',
-                    'placeholder' => 'Contenu de l\'article'
-                )
+                    'placeholder' => 'Contenu de l\'article',
+                ),
             )
         )
         ->add(
             'category'
         )
         ->add(
-            'save', 
+            'save',
             'submit',
             array(
                 'attr' => array(
-                    'label' => 'Proposer'
-                )
+                    'label' => 'Proposer',
+                ),
             )
         );
     }

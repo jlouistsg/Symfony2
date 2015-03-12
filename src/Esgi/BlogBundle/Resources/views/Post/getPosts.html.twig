@@ -20,7 +20,7 @@
                     </h3>
 
                     <p>{{ post.body[:20]|striptags ~ ' ...' }}</p>
-                
+
                     <a href="/article/get/{{ post.slug }}" class="text-primary pull-right">
                         Lire la suite
                     </a>
@@ -30,5 +30,21 @@
             {% endfor %}
         </tbody>
     </table>
+
+{% endblock %}
+
+{% block sidebar %}
+    <h2>Category</h2>
+    {% if categories is defined %}
+        <ul>
+            {% for category in categories %}
+                <li>
+                    <a href="/article/category/{{category.name}}">{{category.name}}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        Pas de categorie enregistrée.
+    {% endif %}
 
 {% endblock %}
