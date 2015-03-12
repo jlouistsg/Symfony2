@@ -28,4 +28,18 @@ class LoadPostFixtures extends AbstractFixture implements FixtureInterface
     {
         return 2;
     }
+
+    public function setSlug(ObjectManager $manager)
+    {
+
+        // get posts from db
+        $publishedPosts = $manager->getRepository('EsgiBlogBundle:Post')->findPublicationStatus(false);
+
+        foreach ($publishedPosts as $post) {
+            $post->setSlug(slugify($post->getTitle));
+            $manager->persist($post);
+        }
+
+        $manager->flush();
+    }
 }

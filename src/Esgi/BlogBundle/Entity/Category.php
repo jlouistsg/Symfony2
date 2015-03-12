@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Category.
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Esgi\BlogBundle\Repository\CategoryRepository")
  */
 class Category
 {
@@ -105,5 +105,10 @@ class Category
     public function getPosts()
     {
         return $this->posts;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }
