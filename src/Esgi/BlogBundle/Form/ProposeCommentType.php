@@ -26,6 +26,7 @@ class ProposeCommentType extends AbstractType
             'textarea',
             array(
                 'attr' => array(
+                    'class' => 'tinymce',
                     'label' => 'Commentaire',
                     'placeholder' => 'Votre commentaire',
                 ),

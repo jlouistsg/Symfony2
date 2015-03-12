@@ -19,7 +19,7 @@
                         </a>
                     </h3>
 
-                    <p>{{ post.body[:20]|striptags ~ ' ...' }}</p>
+                    <p>{{ post.body[:20]|striptags ~ ' ...' | raw}}</p>
 
                     <a href="/article/get/{{ post.slug }}" class="text-primary pull-right">
                         Lire la suite

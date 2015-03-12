@@ -15,7 +15,7 @@
     </div>
 
     <p>
-        {{ post.body }}
+        {{ post.body | raw }}
     </p>
 {% endfor %}
 
@@ -31,7 +31,7 @@
             <tr>
                 <td>
                     <div>
-                        {{comment.content}}
+                        {{comment.content | raw}}
                     </div>
                     <div class="pull-right">
                         <b>{{comment.name}}</b>, le {{ comment.created|date("d M Y") }}

@@ -26,6 +26,7 @@ class ProposePostType extends AbstractType
             'textarea',
             array(
                 'attr' => array(
+                    'class' => 'tinymce',
                     'label' => 'Contenu',
                     'placeholder' => 'Contenu de l\'article',
                 ),
