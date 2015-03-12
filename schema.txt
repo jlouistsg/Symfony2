@@ -38,7 +38,7 @@ Pages
 
     /new                -> create post
     /edit/{id}          -> edit post
-
+    /propose
 
     /{login}            -> form for login
     /{logout}           -> logout current user

@@ -49,7 +49,6 @@ class Post
      */
     protected $category;
 
-
     /**
      * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
      */
@@ -253,7 +252,7 @@ class Post
         return $this->updated;
     }
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -261,9 +260,10 @@ class Post
     }
 
     /**
-     * Add comments
+     * Add comments.
      *
      * @param \Esgi\BlogBundle\Entity\Comment $comments
+     *
      * @return Post
      */
     public function addComment(\Esgi\BlogBundle\Entity\Comment $comments)
@@ -274,7 +274,7 @@ class Post
     }
 
     /**
-     * Remove comments
+     * Remove comments.
      *
      * @param \Esgi\BlogBundle\Entity\Comment $comments
      */
@@ -284,9 +284,9 @@ class Post
     }
 
     /**
-     * Get comments
+     * Get comments.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getComments()
     {

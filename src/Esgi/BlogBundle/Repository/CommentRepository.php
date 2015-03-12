@@ -18,4 +18,3 @@ class CommentRepository extends EntityRepository
             ->getResult();
     }
 }
-
