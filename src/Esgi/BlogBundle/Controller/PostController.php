@@ -249,10 +249,47 @@ class PostController extends Controller
                 // save the change
                 $em->flush();
 
-                return new Response('ok');
+                return new $this->redirect($this->generateUrl('blog_get_articles'));
             }
         } else {
-            return new Response('pas ok');
+            return $this->render('EsgiBlogBundle:Error:Error.html.twig', array());
         }
+    }
+    
+    /**
+     * @Route("/article/category/{category_name}")
+     * @Template()
+     */
+    public function getPostByCategoryAction($category_name)
+    {
+        // init connection to db
+        $em = $this->get("doctrine.orm.entity_manager");
+
+        // get posts from db
+        $category = $em->getRepository('EsgiBlogBundle:Category')->findCategoryByName($category_name);
+
+        if($category != NULL)
+        {
+            $publishedPosts = $em->getRepository('EsgiBlogBundle:Post')->findPublicationByCategory($category[0]);
+
+            if($publishedPosts != NULL)
+            {
+                // return posts to view
+                return $this->render('EsgiBlogBundle:Post:getPosts.html.twig', array(
+                    'publishedPosts' => $publishedPosts,
+                ));
+            }
+            else
+            {
+              // return posts to view
+                return $this->render('EsgiBlogBundle:Error:Error.html.twig', array('msgError'=>'pas de post'));
+            }
+        }
+        else
+        {
+            // return posts to view
+            return $this->render('EsgiBlogBundle:Error:Error.html.twig', array('msgError'=>'pas de category'));
+        }
+
     }
 }

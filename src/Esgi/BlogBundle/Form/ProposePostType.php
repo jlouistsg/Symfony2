@@ -32,6 +32,9 @@ class ProposePostType extends AbstractType
             )
         )
         ->add(
+            'category'
+        )
+        ->add(
             'save', 
             'submit',
             array(
