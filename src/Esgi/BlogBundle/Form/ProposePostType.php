@@ -12,10 +12,10 @@ class ProposePostType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('body','textarea', array(
+            ->add('body', 'textarea', array(
                     'attr' => array(
-                        'class' => 'tinymce'
-                    )
+                        'class' => 'tinymce',
+                    ),
                 )
             )
             ->add('category')

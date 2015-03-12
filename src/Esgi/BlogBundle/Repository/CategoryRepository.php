@@ -15,5 +15,4 @@ class CategoryRepository extends EntityRepository
             ->getQuery()
             ->getResult();
     }
-
 }

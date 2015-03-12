@@ -17,11 +17,11 @@ use Esgi\BlogBundle\Form\CategoryType;
  */
 class CategoryController extends Controller
 {
-
     /**
      * Lists all Category entities.
      *
      * @Route("/", name="category")
+     *
      * @Method("GET")
      * @Template()
      */
@@ -39,6 +39,7 @@ class CategoryController extends Controller
      * Creates a new Category entity.
      *
      * @Route("/", name="category_create")
+     *
      * @Method("POST")
      * @Template("EsgiBlogBundle:Category:new.html.twig")
      */
@@ -85,6 +86,7 @@ class CategoryController extends Controller
      * Displays a form to create a new Category entity.
      *
      * @Route("/new", name="category_new")
+     *
      * @Method("GET")
      * @Template()
      */
@@ -103,6 +105,7 @@ class CategoryController extends Controller
      * Finds and displays a Category entity.
      *
      * @Route("/{id}/show", name="category_show")
+     *
      * @Method("GET")
      * @Template()
      */
@@ -128,6 +131,7 @@ class CategoryController extends Controller
      * Displays a form to edit an existing Category entity.
      *
      * @Route("/{id}/edit", name="category_edit")
+     *
      * @Method("GET")
      * @Template()
      */
@@ -152,12 +156,12 @@ class CategoryController extends Controller
     }
 
     /**
-    * Creates a form to edit a Category entity.
-    *
-    * @param Category $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a Category entity.
+     *
+     * @param Category $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(Category $entity)
     {
         $form = $this->createForm(new CategoryType(), $entity, array(
@@ -173,6 +177,7 @@ class CategoryController extends Controller
      * Edits an existing Category entity.
      *
      * @Route("/{id}", name="category_update")
+     *
      * @Method("PUT")
      * @Template("EsgiBlogBundle:Category:edit.html.twig")
      */
@@ -206,6 +211,7 @@ class CategoryController extends Controller
      * Deletes a Category entity.
      *
      * @Route("/{id}", name="category_delete")
+     *
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)

@@ -12,10 +12,10 @@ class ProposeCommentType extends AbstractType
     {
         $builder
         ->add('name')
-        ->add('content','textarea', array(
+        ->add('content', 'textarea', array(
                 'attr' => array(
-                    'class' => 'tinymce'
-                )
+                    'class' => 'tinymce',
+                ),
             )
         )
         ->add('save', 'submit');

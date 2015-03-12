@@ -10,7 +10,6 @@ use Esgi\BlogBundle\Form\ProposePostType;
 use Esgi\BlogBundle\Entity\Comment;
 use Esgi\BlogBundle\Form\ProposeCommentType;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class PostController extends Controller
 {
@@ -269,29 +268,21 @@ class PostController extends Controller
         // get posts from db
         $category = $em->getRepository('EsgiBlogBundle:Category')->findCategoryByName($category_name);
 
-        if($category != NULL)
-        {
+        if ($category != null) {
             $publishedPosts = $em->getRepository('EsgiBlogBundle:Post')->findPublicationByCategory($category[0]);
 
-            if($publishedPosts != NULL)
-            {
+            if ($publishedPosts != null) {
                 // return posts to view
                 return $this->render('EsgiBlogBundle:Post:getPosts.html.twig', array(
                     'publishedPosts' => $publishedPosts,
                 ));
-            }
-            else
-            {
+            } else {
                 // return posts to view
-                return $this->render('EsgiBlogBundle:Error:Error.html.twig', array('msgError'=>'pas de post'));
+                return $this->render('EsgiBlogBundle:Error:Error.html.twig', array('msgError' => 'pas de post'));
             }
-        }
-        else
-        {
+        } else {
             // return posts to view
-            return $this->render('EsgiBlogBundle:Error:Error.html.twig', array('msgError'=>'pas de category'));
+            return $this->render('EsgiBlogBundle:Error:Error.html.twig', array('msgError' => 'pas de category'));
         }
-
     }
-
 }
