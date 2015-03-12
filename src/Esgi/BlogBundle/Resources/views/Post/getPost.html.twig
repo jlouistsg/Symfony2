@@ -13,7 +13,7 @@
             </small>
         </h1>
     </div>
-    
+
     <p>
         {{ post.body }}
     </p>
@@ -30,10 +30,12 @@
         {% for comment in publishedComments %}
             <tr>
                 <td>
-                    {{comment.name}}
-                </td>
-                <td>
-                    {{comment.content}}
+                    <div>
+                        {{comment.content}}
+                    </div>
+                    <div class="pull-right">
+                        <b>{{comment.name}}</b>, le {{ comment.created|date("d M Y") }}
+                    </div>
                 </td>
             </tr>
         {% endfor %}
@@ -53,8 +55,8 @@
 </div>
 
 {% form_theme form 'EsgiBlogBundle:Form:comment.html.twig' %}
-
-<form class="horizontal-form">
+    {{form(form)}}
+<!-- <form class="horizontal-form">
     <div class="form-group">
         {{ form_row(form.name) }}
     </div>
@@ -64,6 +66,5 @@
     </div>
 
     {{ form_widget(form.save) }}
-</form>
-
+</form> -->
 {% endblock %}
