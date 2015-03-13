@@ -34,7 +34,22 @@
 {% endblock %}
 
 {% block choice_widget %}
-    <select class="form-control col-xs-4" {{ block('widget_attributes') }}></select>
+    <select class="form-control col-xs-4" {{ block('widget_attributes') }}>
+
+        {%- if placeholder is not none -%}
+            <option value=""{% if required and value is empty %} selected="selected"{% endif %}>{{ placeholder|trans({}, translation_domain) }}</option>
+        {%- endif -%}
+        {%- if preferred_choices|length > 0 -%}
+            {% set options = preferred_choices %}
+            {{- block('choice_widget_options') -}}
+            {%- if choices|length > 0 and separator is not none -%}
+                <option disabled="disabled">{{ separator }}</option>
+            {%- endif -%}
+        {%- endif -%}
+        {%- set options = choices -%}
+        {{- block('choice_widget_options') -}}
+
+    </select>
 
     <div class="clearfix"></div>
 {% endblock %}

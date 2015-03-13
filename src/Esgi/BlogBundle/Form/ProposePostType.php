@@ -34,7 +34,7 @@ class ProposePostType extends AbstractType
         )
         ->add(
             'category',
-            'choice',
+            null,
             array(
                 'attr' => array(
                     'label' => 'Catégorie',
