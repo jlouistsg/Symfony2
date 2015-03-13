@@ -16,7 +16,13 @@ class UserAdmin extends Admin
             ->add('email')
             ->add('enabled', null, array('required' => false))
             ->add('locked', null, array('required' => false))
-            ->add('password')
+            ->add('plainPassword', 'repeated', array(
+                    'type' => 'password',
+                    'options' => array('translation_domain' => 'FOSUserBundle'),
+                    'first_options' => array('label' => 'Password'),
+                    'second_options' => array('label' => 'Password Confirmation'),
+                    'invalid_message' => 'fos_user.password.mismatch',
+            ))
         ;
     }
 

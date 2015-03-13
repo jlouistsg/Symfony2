@@ -24,7 +24,6 @@ class PostAdmin extends Admin
     {
         $datagridMapper
             ->add('title')
-            ->add('body')
             ->add('isPublished')
             ->add('category')
         ;
