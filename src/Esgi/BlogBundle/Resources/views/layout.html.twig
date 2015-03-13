@@ -26,7 +26,18 @@
                                     <a href="{{ path('blog_get_articles', { 'page': 1 }) }}">Articles</a>
                                 </li>
                                 <li role="connexion">
-                                    <a href="/login">Connexion</a>
+                                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+                                            <a href="/admin/">Administration</a>
+                                        </li>
+                                        <li>
+                                        <a href="{{ path('fos_user_security_logout') }}">
+                                        Deconnexion
+                                        </a>
+                                        </li>
+                                    {% else %}
+                                        <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                                    {% endif %}
                                 </li>
                             </ul>
                         </div>
