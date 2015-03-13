@@ -33,22 +33,40 @@ class PostController extends Controller
     }
 
     /**
-     * @Route("/articles" , name="blog_get_articles")
+     * @Route("/articles/{page}" , name="blog_get_articles")
      * @Template()
      */
-    public function getPostsAction()
+    public function getPostsAction($page)
     {
         // init connection to db
         $em = $this->get("doctrine.orm.entity_manager");
 
+        // set maximum posts number per page
+        $maxPerPage = 4;
+
+        // get published posts count
+        $postsCount = $em->getRepository('EsgiBlogBundle:Post')->getPublishedTotal(true);
+
+        // preparing pagination
+        $pagination = array(
+            'page' => $page,
+            'route' => 'posts',
+            'pages_count' => ceil($postsCount / $maxPerPage),
+            'route_params' => array(
+                '_format' => 'html')
+        );
+
         // get posts from db
-        $publishedPosts = $em->getRepository('EsgiBlogBundle:Post')->findPublicationStatus(true);
+        $publishedPosts = $em->getRepository('EsgiBlogBundle:Post')->findPublicationStatus(true, $page, $maxPerPage);
 
         // get categories from db
         $categories = $em->getRepository('EsgiBlogBundle:Category')->getCategory();
 
         // return posts to view
-        return array('publishedPosts' => $publishedPosts,'categories' => $categories);
+        return array(
+            'publishedPosts' => $publishedPosts,
+            'pagination' => $pagination,
+            'categories' => $categories);
     }
 
     /**

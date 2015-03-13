@@ -1,3 +1,7 @@
 category:
     type: rest
     resource: Esgi\BlogBundle\Controller\CategoryController
+
+posts:
+    path: /articles/{page}
+    defaults: {_controller:EsgiBlogBundle:Post:Posts,page:1}
