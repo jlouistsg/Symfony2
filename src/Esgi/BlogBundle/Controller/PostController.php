@@ -44,7 +44,7 @@ class PostController extends Controller
         // set maximum posts number per page
         $maxPerPage = 4;
 
-        // 
+        // get published posts count
         $postsCount = $em->getRepository('EsgiBlogBundle:Post')->getPublishedTotal(true);
 
         // preparing pagination
