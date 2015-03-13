@@ -115,23 +115,28 @@ knp_menu:
 sonata_admin:
     title:      Esgi Blog Bundle
     templates:
-        dashboard: SonataAdminBundle:Core:dashboard.html.twig
+    dashboard:
+        blocks:
+            -
+                position: left
+                type: sonata.admin.block.admin_list
+                settings:
+                    groups: [sonata_page1]
+            -
+                position: right
+                type: sonata.admin.block.admin_list
+                settings:
+                    groups: [sonata_page2]
 
-
-bazinga_faker:
-    orm: doctrine
-    entities:
-        Esgi\BlogBundle\Entity\Category:
-            number: 5
-            custom_formatters:
-              name:   { method: word}
-        Esgi\BlogBundle\Entity\Post:
-            number: 10
-            custom_formatters:
-                slug: { method: slug, method: word }
-                title:   { method: word}
-        Esgi\BlogBundle\Entity\Comment:
-            number: 50
+        groups:
+            sonata_page1:
+                items:
+                    - sonata.admin.user
+            sonata_page2:
+                items:
+                    - sonata.admin.post
+                    - sonata.admin.category
+                    - sonata.admin.comment
 
 stfalcon_tinymce:
     include_jquery: true

@@ -3,7 +3,7 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
        <service id="sonata.admin.post" class="Esgi\BlogBundle\Admin\PostAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Content" label="Post"/>
+          <tag name="sonata.admin" manager_type="orm" group="test" label="Post"/>
           <argument />
           <argument>Esgi\BlogBundle\Entity\Post</argument>
           <argument />
@@ -24,6 +24,15 @@
           <tag name="sonata.admin" manager_type="orm" group="Content" label="Category"/>
           <argument />
           <argument>Esgi\BlogBundle\Entity\Category</argument>
+          <argument />
+          <call method="setTranslationDomain">
+              <argument>EsgiBlogBundle</argument>
+          </call>
+      </service>
+       <service id="sonata.admin.user" class="Esgi\BlogBundle\Admin\UserAdmin">
+          <tag name="sonata.admin" manager_type="orm" group="Content" label="User"/>
+          <argument />
+          <argument>Esgi\BlogBundle\Entity\User</argument>
           <argument />
           <call method="setTranslationDomain">
               <argument>EsgiBlogBundle</argument>
