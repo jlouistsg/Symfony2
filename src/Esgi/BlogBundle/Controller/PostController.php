@@ -14,7 +14,26 @@ use Symfony\Component\HttpFoundation\Request;
 class PostController extends Controller
 {
     /**
-     * @Route("/" , name="blog_get_articles")
+     * @Route("/" , name="blog_get_articles_with_limit")
+     * @Template()
+     */
+    public function indexAction()
+    {
+        // init connection to db
+        $em = $this->get("doctrine.orm.entity_manager");
+
+        // get posts from db
+        $publishedPosts = $em->getRepository('EsgiBlogBundle:Post')->findPublicationStatusWithLimit(true, 2);
+
+        // get categories from db
+        $categories = $em->getRepository('EsgiBlogBundle:Category')->getCategory();
+
+        // return posts to view
+        return array('publishedPosts' => $publishedPosts,'categories' => $categories);
+    }
+
+    /**
+     * @Route("/articles" , name="blog_get_articles")
      * @Template()
      */
     public function getPostsAction()

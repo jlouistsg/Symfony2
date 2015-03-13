@@ -1,0 +1,48 @@
+{% block text_label %}
+    {% set label = attr.label %}
+    {% set placeholder = attr.placeholder %}
+
+    <label for="{{ placeholder }}" class="col-sm-2 control-label">{{ label }}</label>
+
+    <div class="clearfix"></div>
+{% endblock %}
+
+{% block text_widget %}
+    {% set type = type|default('text') %}
+
+    <input type="{{ type }}" class="form-control col-xs-4" {{ block('widget_attributes') }} value="{{ value }}" />
+
+    <div class="clearfix"></div>
+{% endblock %}
+
+{% block textarea_label %}
+    {% set label = attr.label %}
+    {% set placeholder = attr.placeholder %}
+
+    <label for="{{ placeholder }}" class="col-sm-2 control-label">{{ label }}</label>
+
+    <div class="clearfix"></div>
+{% endblock %}
+
+{% block choice_label %}
+    {% set label = attr.label %}
+    {% set placeholder = attr.placeholder %}
+
+    <label for="{{ placeholder }}" class="col-sm-2 control-label">{{ label }}</label>
+
+    <div class="clearfix"></div>
+{% endblock %}
+
+{% block choice_widget %}
+    <select class="form-control col-xs-4" {{ block('widget_attributes') }}></select>
+
+    <div class="clearfix"></div>
+{% endblock %}
+
+{% block submit_widget %}
+    {% set label = attr.label %}
+
+    <button type="submit" class="btn btn-primary">{{ label }}</button>
+
+    <div class="clearfix"></div>
+{% endblock %}

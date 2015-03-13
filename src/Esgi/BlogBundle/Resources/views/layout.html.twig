@@ -3,14 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         {% stylesheets '@EsgiBlogBundle/Resources/css/*' filter='cssrewrite' %}
             <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
-        {% javascripts '@EsgiBlogBundle/Resources/js/*' %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
     </head>
     <body>
         <div class="container">
@@ -26,10 +22,10 @@
                                 <li role="presentation">
                                     <a href="/">Accueil</a>
                                 </li>
-                                <li role="proposer">
-                                    <a href="/article/propose">Proposer un article</a>
+                                <li role="articles">
+                                    <a href="/articles">Articles</a>
                                 </li>
-                                <li role="proposer">
+                                <li role="connexion">
                                     <a href="/login">Connexion</a>
                                 </li>
                             </ul>

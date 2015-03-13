@@ -6,7 +6,11 @@
 
     {{ parent() }}
 
-    <h2>Derniers articles</h2>
+    <h2 class="pull-left">Derniers articles</h2>
+
+    <a href="/article/propose" class="btn btn-success pull-right">Proposer un article</a>
+
+    <div class="clearfix"></div>
 
     <table class="table table-hover">
         <tbody>
@@ -36,15 +40,13 @@
 {% block sidebar %}
     <h2>Category</h2>
     {% if categories is defined %}
-        <ul>
+        <div class="list-group">
             {% for category in categories %}
-                <li>
-                    <a href="/article/category/{{category.name}}">{{category.name}}</a>
-                </li>
+                <a href="/article/category/{{category.name}}" class="list-group-item">{{category.name}}</a>
             {% endfor %}
-        </ul>
+        </div>
     {% else %}
-        Pas de categorie enregistrée.
+        <p class="text-warning">Pas de categorie enregistrée.</p>
     {% endif %}
 
 {% endblock %}

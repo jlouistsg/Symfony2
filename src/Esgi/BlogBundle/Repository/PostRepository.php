@@ -6,6 +6,17 @@ use Doctrine\ORM\EntityRepository;
 
 class PostRepository extends EntityRepository
 {
+    public function findPublicationStatusWithLimit($status = true, $limit)
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.isPublished = :is_published')
+            ->orderBy('p.created', 'DESC')
+            ->setParameter('is_published', $status)
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
+    }
+
     public function findPublicationStatus($status = true)
     {
         return $this->createQueryBuilder('p')
