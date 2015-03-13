@@ -21,3 +21,4 @@ http://ideadapt.blogspot.fr/2012/01/customizing-templates-of-symfony2.html
 
 standard_layout.html.twig
 vendor\bundles\Sonata\AdminBundle\Resources\views
+
