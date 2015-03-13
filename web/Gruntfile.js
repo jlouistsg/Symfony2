@@ -6,10 +6,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint'); // Compilateur JS
 	grunt.loadNpmTasks('grunt-contrib-watch'); 	// Watcher d'événement
 	
-	var jsDist = '../src/Esgi/BlogBundle/Resources/js/_built.js';
+	var jsDist = '../src/Esgi/BlogBundle/Resources/js/built/_built.js';
     var jsSrc = ['../src/Esgi/BlogBundle/Resources/js/**/*.js', '!' + jsDist, '!../src/Esgi/BlogBundle/Resources/js/vendor/**/*.js', '!../src/Esgi/BlogBundle/Resources/js/bootstrap.min.js'];
 
-	var cssDist = '../src/Esgi/BlogBundle/Resources/css/_built.css';
+	var cssDist = '../src/Esgi/BlogBundle/Resources/css/built/_built.css';
     var cssSrc = ['../src/Esgi/BlogBundle/Resources/css/**/*.css', '!' + cssDist];
 	
     // Configuration de Grunt
