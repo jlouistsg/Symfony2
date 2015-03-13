@@ -53,7 +53,7 @@ class PostController extends Controller
             'route' => 'posts',
             'pages_count' => ceil($postsCount / $maxPerPage),
             'route_params' => array(
-                '_format' => 'html')
+                '_format' => 'html', ),
         );
 
         // get posts from db
@@ -66,7 +66,7 @@ class PostController extends Controller
         return array(
             'publishedPosts' => $publishedPosts,
             'pagination' => $pagination,
-            'categories' => $categories);
+            'categories' => $categories, );
     }
 
     /**

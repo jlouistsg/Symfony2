@@ -38,8 +38,8 @@ class ProposePostType extends AbstractType
             array(
                 'attr' => array(
                     'label' => 'Catégorie',
-                    'placeholder' => 'Choisissez une catégorie'
-                )
+                    'placeholder' => 'Choisissez une catégorie',
+                ),
             )
         )
         ->add(
