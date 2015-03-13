@@ -6,7 +6,7 @@
 
     {{ parent() }}
 
-    <h2 class="pull-left">Derniers articles</h2>
+    <h2 class="pull-left">Tous les articles</h2>
 
     <a href="/article/propose" class="btn btn-success pull-right">Proposer un article</a>
 
@@ -14,7 +14,7 @@
 
     <table class="table table-hover">
         <tbody>
-            {% for post in publishedPosts %}
+            {% for post in publishedPosts.query %}
             <tr>
                 <td>
                     <h3>
@@ -34,6 +34,8 @@
             {% endfor %}
         </tbody>
     </table>
+
+    {% include 'EsgiBlogBundle::pagination.html.twig' %}
 
 {% endblock %}
 

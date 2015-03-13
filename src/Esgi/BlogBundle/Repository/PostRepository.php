@@ -3,6 +3,7 @@
 namespace Esgi\BlogBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 class PostRepository extends EntityRepository
 {
@@ -17,14 +18,18 @@ class PostRepository extends EntityRepository
             ->getResult();
     }
 
-    public function findPublicationStatus($status = true)
+    public function findPublicationStatus($status = true, $page, $maxPerPage)
     {
-        return $this->createQueryBuilder('p')
+        $query = $this->createQueryBuilder('p')
             ->where('p.isPublished = :is_published')
             ->orderBy('p.created', 'DESC')
             ->setParameter('is_published', $status)
+            ->setFirstResult(($page - 1) * $maxPerPage)
+            ->setMaxResults($maxPerPage)
             ->getQuery()
             ->getResult();
+
+        return new Paginator($query);
     }
 
     public function findPublicationSlug($slug)
@@ -40,8 +45,19 @@ class PostRepository extends EntityRepository
     {
         return $this->createQueryBuilder('p')
             ->where('p.category = :category')
-           ->setParameter('category', $category)
+            ->setParameter('category', $category)
             ->getQuery()
             ->getResult();
+    }
+
+    public function getPublishedTotal($status = true)
+    {
+        return $this->createQueryBuilder('p')
+            ->select('count(p)')
+            ->where('p.isPublished = :is_published')
+            ->orderBy('p.created', 'DESC')
+            ->setParameter('is_published', $status)
+            ->getQuery()
+            ->getSingleScalarResult();
     }
 }
