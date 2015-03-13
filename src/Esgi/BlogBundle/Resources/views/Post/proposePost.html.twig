@@ -11,13 +11,13 @@
 
 	{% for flashMessage in app.session.flashbag.get('success') %}
 	    <div class="flash notice">
-	        {{ flashMessage }}
+	        <p class="bg-success">{{ flashMessage }}</p>
 	    </div>
 	{% endfor %}
 
 	{% form_theme form 'EsgiBlogBundle:Form:form.html.twig' %}
 
-	<form>
+	{{ form_start(form, {'method': 'POST'}) }}
 		<div class="form-group">
 			{{ form_row(form.title) }}
 		</div>
@@ -37,7 +37,7 @@
 		<div class="clearfix"></div>
 
 		{{ form_widget(form.save) }}
-	</form>
+	{{ form_end(form) }}
 
 {% endblock %}
 
