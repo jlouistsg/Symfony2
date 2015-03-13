@@ -27,17 +27,16 @@
                                 </li>
                                 <li role="connexion">
                                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-
-                                            <a href="/admin/">Administration</a>
-                                        </li>
-                                        <li>
-                                        <a href="{{ path('fos_user_security_logout') }}">
+                                    <a href="/admin/">Administration</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('fos_user_security_logout') }}">
                                         Deconnexion
-                                        </a>
-                                        </li>
-                                    {% else %}
-                                        <a href="{{ path('fos_user_security_login') }}">Connexion</a>
-                                    {% endif %}
+                                    </a>
+                                </li>
+                                {% else %}
+                                    <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                                {% endif %}
                                 </li>
                             </ul>
                         </div>

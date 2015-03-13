@@ -287,7 +287,7 @@ class PostController extends Controller
 
             if ($publishedPosts != null) {
                 // return posts to view
-                return $this->render('EsgiBlogBundle:Post:getPosts.html.twig', array(
+                return $this->render('EsgiBlogBundle:Post:index.html.twig', array(
                     'publishedPosts' => $publishedPosts,
                 ));
             } else {

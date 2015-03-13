@@ -12,8 +12,8 @@ class DefaultControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/');
 
-        $this->assertTrue($crawler->filter('html:contains("beatae")')->count() > 0);
-        $this->assertTrue($crawler->filter('html:contains("voluptate")')->count() > 0);	
+        $this->assertTrue($crawler->filter('html:contains("error")')->count() > 0);
+        $this->assertTrue($crawler->filter('html:contains("et")')->count() > 0);	
     }
 
     public function testGetPosts()
