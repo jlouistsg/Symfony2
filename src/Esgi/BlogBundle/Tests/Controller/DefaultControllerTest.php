@@ -20,11 +20,23 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/articles');
+        $crawler = $client->request('GET', '/articles/1');
 
-        $this->assertTrue($crawler->filter('html:contains("beatae")')->count() > 0);
-        $this->assertTrue($crawler->filter('html:contains("voluptate")')->count() > 0);	
-        $this->assertTrue($crawler->filter('html:contains("neque")')->count() > 0);	
-        $this->assertTrue($crawler->filter('html:contains("soluta")')->count() > 0);	
+        $this->assertTrue($crawler->filter('html:contains("error")')->count() > 0);
+        $this->assertTrue($crawler->filter('html:contains("et")')->count() > 0);	
+        $this->assertTrue($crawler->filter('html:contains("itaque")')->count() > 0);	
+        $this->assertTrue($crawler->filter('html:contains("molestiae")')->count() > 0);	
+    }
+
+    public function testgetPostByCategoryAction()
+    {
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/article/category/vero');
+
+        $this->assertTrue($crawler->filter('html:contains("quis")')->count() > 0);
+        $this->assertTrue($crawler->filter('html:contains("sed")')->count() > 0);   
+        $this->assertTrue($crawler->filter('html:contains("itaque")')->count() > 0);    
+        $this->assertTrue($crawler->filter('html:contains("molestiae")')->count() > 0); 
     }
 }
