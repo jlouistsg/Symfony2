@@ -4,9 +4,15 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        {% stylesheets '@EsgiBlogBundle/Resources/css/*' filter='cssrewrite' %}
+        <!--{% stylesheets '@EsgiBlogBundle/Resources/css/*' filter='cssrewrite' %}-->
+        {% stylesheets '@EsgiBlogBundle/Resources/css/_built.css' filter='cssrewrite' %}
             <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
+
+        <!-- {% javascripts '@EsgiBlogBundle/Resources/js/*' %} -->
+        {% javascripts '@EsgiBlogBundle/Resources/js/_built.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
     </head>
     <body>
         <div class="container">
