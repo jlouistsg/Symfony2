@@ -14,7 +14,7 @@ class CommentAdmin extends Admin
         $formMapper
             ->add('name', 'text', array('label' => 'Post Title'))
             ->add('content', 'textarea', array('attr' => array('class' => 'tinymce')))
-            ->add('isPublished',null, array('required' => false))
+            ->add('isPublished', null, array('required' => false))
         ;
     }
 
